@@ -1,0 +1,43 @@
+
+	<div class="w960">				
+			
+			<?php if(!empty($detail)): ?>
+				<form action="<?=CLIENT_ROOT?>/panier/modifier/" method="post">
+					<table>
+						<thead>
+							<th>Produit</th>
+							<th>Quantité</th>
+							<th>Prix TTC</th>
+							<th>Modifier la quantité</th>
+							<th>Suppression</th>
+						</thead>
+						<?php foreach ($detail as $key => $value):?>
+							
+							<tr>
+								<td><?=$value['name']?></td>
+								<td><?=$quantity[$key]?></td>
+								<td><?=$value['priceTTC']*$quantity[$key]?></td>
+								<td>									
+									<input type="number" value="<?=$quantity[$key]?>" name="<?=$key?>">															
+								</td>
+								<td>
+									<a href="<?=CLIENT_ROOT?>/panier/supprimer/?id=<?=$ids[$key]?>">supprimer</a>
+								</td>
+							</tr>
+
+						<?php endforeach; ?>
+						<tfooter>
+							<td>Total</td>
+							<td></td>
+							<td><?=$total?></td>
+						</tfooter>
+					</table>
+				<input type="submit" value="Modifier"></form>
+
+				
+				<a class="fr" href="<?=CLIENT_ROOT?>/compte/authentification/">Finaliser la commande</a>
+			<?php else: ?>
+				<p>Votre panier est vide</p>
+			<?php endif; ?>
+		
+	</div>

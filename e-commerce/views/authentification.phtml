@@ -1,0 +1,42 @@
+
+
+	<div class="creation clearfix">
+		<h3>Création de compte</h3>
+		<form action="" method="post">
+			<div class="clearfix">
+				<label class="label" for="civility">Civilité</label>
+				<select class="input" id="civility" name="civility">
+					<option value="M.">M.</option>
+					<option value="Mme">Mme</option>
+					<option value="Mlle">Mlle</option>
+				</select>
+			</div>
+			<div class="clearfix">
+				<label class="label" for="firstName">Prénom</label>
+				<input class="input" type="text" id="firstName" name="firstName" placeholder="prenom" required>
+			</div>
+			<div class="clearfix">
+				<label class="label" for="lastName">Nom</label>
+				<input class="input" type="text" id="lastName" name="lastName" placeholder="nom" required>
+			</div>
+			<div class="clearfix">
+				<label class="label" for="email">E-mail</label>
+				<input class="input" type="text" id="email" name="email" placeholder="email" required>
+			</div>
+
+			<div class="clearfix">
+				<label class="label" for="password">Mot de passe</label>
+				<input class="input" type="password" id="password" name="password" placeholder="mot de passe" required>
+			</div>
+			<input class="valid" type="submit">
+		</form>
+	</div>
+	<div class="">
+		<h3>Déjà client?</h3>
+		<form action="../../Compte/identification/" method="post">
+			<input type="email" name="emailverif" placeholder="email">
+			<input type="password" name="passwordverif" placeholder="mot de passe">
+			<input class="submit" type="submit">
+		</form>
+
+	</div>

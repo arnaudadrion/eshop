@@ -1,0 +1,96 @@
+
+	<div class="clearfix creation">	
+		<?php if(count($billingInfo['errors'])>0):?>
+			<?php foreach ($billingInfo['errors'] as $key => $value):?>
+			<p><?= htmlspecialchars($value)?></p>
+			<?php endforeach;?>
+		<?php endif; ?>
+		<form action="../saveBilling/" method="post">
+			<div class="clearfix">
+				<h4 class="fl">Facturation</h4>
+			</div>
+
+			<div class="clearfix">	
+				<label for="">Civilité</label>
+				<select name="billing[Civility]">
+					<option value="M." <?php if(isset($billingInfo['billingInfo']['Civility'])&& $billingInfo['billingInfo']['Civility']=='M.') echo ' selected'; ?> >M.</option>
+
+					<option value="Mme" <?php if(isset($billingInfo['billingInfo']['Civility'])&& $billingInfo['billingInfo']['Civility']=='Mme') echo ' selected'; ?>>Mme</option>
+
+					<option value="Mlle" <?php if(isset($billingInfo['billingInfo']['Civility'])&& $billingInfo['billingInfo']['Civility']=='Mlle') echo 'selected'; ?>>Mlle</option>
+
+				</select>
+			</div>
+			
+			<div class="clearfix">	
+				<label for="">Prénom</label>
+				<input name="billing[FirstName]" type="text"  <?php if(isset($billingInfo['billingInfo']['FirstName'])) echo ' value="'.htmlspecialchars($billingInfo['billingInfo']['FirstName']).'"'; ?>>
+			</div>
+
+			<div class="clearfix">	
+				<label  for="">Nom</label>
+				<input name="billing[LastName]" type="text"  <?php if(isset($billingInfo['billingInfo']['LastName'])) echo ' value="'.htmlspecialchars($billingInfo['billingInfo']['LastName']).'"'; ?>>
+			</div>
+
+			<div class="clearfix">	
+				<label for="">Adresse</label>
+				<input name="billing[Adress]" type="text"  <?php if(isset($billingInfo['billingInfo']['Adress'])) echo ' value="'.htmlspecialchars($billingInfo['billingInfo']['Adress']).'"'; ?>>
+			</div>
+
+			<div class="clearfix">
+				<label for="">Code postal</label>
+				<input name="billing[ZipCode]" type="text" <?php if(isset($billingInfo['billingInfo']['ZipCode'])) echo ' value="'.htmlspecialchars($billingInfo['billingInfo']['ZipCode']).'"'; ?> >
+			</div>
+
+			<div class="clearfix">	
+				<label for="">Ville</label>
+				<input name="billing[City]" type="text"  <?php if(isset($billingInfo['billingInfo']['City'])) echo ' value="'.htmlspecialchars($billingInfo['billingInfo']['City']).'"'; ?> >
+			</div>
+
+			<div class="clearfix">
+				<label for="">Pays</label>
+				<select name="billing[Country]" type="text" >
+					<option value="France">France</option>
+				</select>
+			</div>
+
+			<div class="clearfix">	
+				<label for="">Numéro de téléphone</label>
+				<input name="billing[PhoneNumber]" type="text"  <?php if(isset($billingInfo['billingInfo']['PhoneNumber'])) echo ' value="'.htmlspecialchars($billingInfo['billingInfo']['PhoneNumber']).'"'; ?>>
+			</div>
+<!--			
+			<div class="clearfix">
+				<h4 class="fl w33">Livraison</h4>
+			</div>
+
+			<label class="label" for="">Civilité</label>
+			<select class="input" name="delivery[]">
+				<option value="M.">M.</option>
+				<option value="Mme">Mme</option>
+				<option value="Mlle">Mlle</option>
+			</select>
+			
+			<label class="label" for="">Prénom</label>
+			<input class="input" name="delivery[]" type="text" >
+			
+			<label class="label" for="">Nom</label>
+			<input class="input" name="delivery[]" type="text" >
+			
+			<label class="label" for="">Adresse</label>
+			<input class="input" name="delivery[]" type="text" >
+			
+			<label class="label" for="">Code postal</label>
+			<input class="input" name="delivery[]" type="text" >
+
+			<label class="label" for="">Ville</label>
+			<input class="input" name="delivery[]" type="text" >
+
+			<label class="label" for="">Pays</label>
+			<input class="input" name="delivery[]" type="text" >
+
+			<label class="label" for="">Numéro de téléphone</label>
+			<input class="input" name="delivery[]" type="text" >
+-->			
+			<input class="valid" type="submit">
+		</form>
+	</div>

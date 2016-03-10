@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+	<link rel="stylesheet" type="text/css" href="<?=CLIENT_ROOT?>/ressources/CSS/normalize.css">
+	<link rel="stylesheet" type="text/css" href="<?=CLIENT_ROOT?>/ressources/CSS/style.css">
+</head>
+<body>
+	
+	<div></div>
+
+	<div class="retour">
+		<p><a href="../../../">Retour au site principal</a></p>
+	</div>
+
+
+	<header class="clearfix">
+		<div>	
+			<form action="<?=CLIENT_ROOT?>/compte/identification/" method="post">
+				<h3>Identification</h3>
+				<input type="email" name="email" placeholder="e-mail">
+				<input type="password" name="password" placeholder="mot de passe">
+				<input class="submit" type="submit" value="identification">
+			</form>
+			<a href="<?=CLIENT_ROOT?>/compte/creation/">Créer un compte</a>
+			
+		</div>
+
+		<div>
+			<h3>Mon panier</h3>
+			<?php if(!empty($user)): ?>
+				<p><?=$user['firstName']?> <?=$user['lastName']?></p>
+			<?php endif; ?>
+			<p>						
+				<?=count($ids)?> article(s)				
+			</p>
+			<a href="<?=CLIENT_ROOT?>/panier/detail/">Voir le détail</a>
+			<a class="deco" href="<?=CLIENT_ROOT?>/panier/deconnexion/">Déconnexion</a>
+		</div>
+	</header>
+
+	<section class="clearfix">
+		<aside>
+			<form action="<?=CLIENT_ROOT?>/afficher/recherche/" method="get">
+				<label >Recherche</label>
+				<input type="text" name="recherche">
+				<input class="submit" type="submit" value="chercher">
+			</form>
+
+			<ul><h3>Catégories</h3>
+				<li><a href="../../afficher/all/">Tous les produits</a></li>
+				<?php foreach ($categories as $key => $value):?>				
+					<li><a href="../../afficher/oneCategory/?id=<?=$value['id']?>"><?=$value['name']?>(<?=$value['nombre']?>)</a></li>	
+				<?php endforeach; ?>
+			</ul>
+		</aside>
+			
+		<article>
+			<?= $content ?>
+		</article>
+
+	</section>
+
+</body>
+</html>

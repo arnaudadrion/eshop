@@ -1,0 +1,24 @@
+
+<ul class="clearfix">
+<?php foreach ($products as $key => $value):?>
+	<li>
+		<p><?=$value['name']?><p>
+		<p><a href="../one/?id=<?=$value['id']?>"><img src="<?=CLIENT_ROOT?>/ressources/images/<?=$value['imagePath']?>" alt=""></a></p>
+		<p><?=$value['priceTTC']?> €</p>
+	</li>
+<?php endforeach; ?>
+</ul>
+<div class="pagination">
+	<?php for ($i=1; $i <=$pagination['lastPage'] ; $i++): ?>
+		<?php if (array_key_exists('id', $_GET)):?>
+			<a href="<?=CLIENT_ROOT?>/afficher/oneCategory/?id=<?=$value['id_category']?>&amp;page=<?=$i?>">Page <?=$i?></a>
+		
+		<?php elseif(array_key_exists('recherche', $_GET)):?>
+			<a href="<?=CLIENT_ROOT?>/afficher/recherche/?recherche=<?=$_GET['recherche']?>&amp;page=<?=$i?>">Page <?=$i?></a>
+		
+		<?php else:?>
+			<a href="<?=CLIENT_ROOT?>/afficher/all/?page=<?=$i?>">Page <?=$i?></a>
+		<?php endif;?>
+	<?php endfor; ?>
+	
+</div>
